@@ -1,0 +1,559 @@
+2016-08-05 09:45:01 [::1][1][as7c5vcoesj5n6hobtn6r7s535][error][ReflectionException] exception 'ReflectionException' with message 'Class backend\assets\CountDownAsset does not exist' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php:422
+Stack trace:
+#0 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(422): ReflectionClass->__construct('backend\\assets\\...')
+#1 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(362): yii\di\Container->getDependencies('backend\\assets\\...')
+#2 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('backend\\assets\\...', Array, Array)
+#3 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('backend\\assets\\...', Array, Array)
+#4 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetManager.php(264): yii\BaseYii::createObject(Array)
+#5 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetManager.php(237): yii\web\AssetManager->loadBundle('backend\\assets\\...', Array, true)
+#6 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(284): yii\web\AssetManager->getBundle('backend\\assets\\...')
+#7 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(289): yii\web\View->registerAssetBundle('backend\\assets\\...', NULL)
+#8 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(477): yii\web\View->registerAssetBundle('/LazyWaimai-Web...')
+#9 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/views/user/update-phone.php(21): yii\web\View->registerJsFile('@web/js/update-...', Array)
+#10 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(325): require('/Users/wanghong...')
+#11 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Users/wanghong...', Array)
+#12 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/wanghong...', Array, Object(app\controllers\UserController))
+#13 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('update-phone', Array, Object(app\controllers\UserController))
+#14 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/controllers/UserController.php(217): yii\base\Controller->render('update-phone', Array)
+#15 [internal function]: app\controllers\UserController->actionUpdatePhone('1')
+#16 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#17 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#18 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('update-phone', Array)
+#19 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('user/update-pho...', Array)
+#20 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php(12): yii\base\Application->run()
+#22 {main}
+2016-08-05 09:45:01 [::1][1][as7c5vcoesj5n6hobtn6r7s535][info][application] $_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/user/update-password'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58438'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/user/update-phone'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/user/update-phone'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390301.825
+    'REQUEST_TIME' => 1470390301
+]
+2016-08-05 09:45:47 [::1][-][as7c5vcoesj5n6hobtn6r7s535][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Getting unknown property: yii\web\Application::ucpass' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Component.php:143
+Stack trace:
+#0 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/ServiceLocator.php(73): yii\base\Component->__get('ucpass')
+#1 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/models/SendChangePhoneSmsForm.php(63): yii\di\ServiceLocator->__get('ucpass')
+#2 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/controllers/UserController.php(174): app\models\SendChangePhoneSmsForm->sendSms()
+#3 [internal function]: app\controllers\UserController->actionSendUpdatePhoneSms()
+#4 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#5 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('send-update-pho...', Array)
+#7 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('user/send-updat...', Array)
+#8 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php(12): yii\base\Application->run()
+#10 {main}
+2016-08-05 09:45:47 [::1][-][as7c5vcoesj5n6hobtn6r7s535][info][application] $_POST = [
+    'phone' => '17721429141'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_LENGTH' => '17'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/user/update-phone?step=2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_X_CSRF_TOKEN' => 'b0IwOVFVc1Y6J1FuNxoHHgg7ZFgaOwkOPyN5cgEZQGQ1DmZWEA0EPw=='
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58478'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/user/send-update-phone-sms'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/user/send-update-phone-sms'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390347.839
+    'REQUEST_TIME' => 1470390347
+]
+2016-08-05 09:46:27 [::1][1][as7c5vcoesj5n6hobtn6r7s535][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: imageBaseUrl' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/components/helpers/UrlHelper.php:40
+Stack trace:
+#0 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/components/helpers/UrlHelper.php(40): yii\base\ErrorHandler->handleError(8, 'Undefined index...', '/Users/wanghong...', 40, Array)
+#1 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/views/business/profile.php(38): app\components\helpers\UrlHelper::toBusinessLogo('https://fuss10....')
+#2 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(325): require('/Users/wanghong...')
+#3 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Users/wanghong...', Array)
+#4 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/wanghong...', Array, Object(app\controllers\BusinessController))
+#5 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('profile', Array, Object(app\controllers\BusinessController))
+#6 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/controllers/BusinessController.php(122): yii\base\Controller->render('profile', Array)
+#7 [internal function]: app\controllers\BusinessController->actionProfile()
+#8 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#9 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#10 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('profile', Array)
+#11 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('business/profil...', Array)
+#12 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php(12): yii\base\Application->run()
+#14 {main}
+2016-08-05 09:46:27 [::1][1][as7c5vcoesj5n6hobtn6r7s535][info][application] $_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58481'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/business/profile'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/business/profile'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390387.348
+    'REQUEST_TIME' => 1470390387
+]
+2016-08-05 09:49:02 [::1][-][as7c5vcoesj5n6hobtn6r7s535][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'common\components\Ucpaas' not found' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/models/SendChangePhoneSmsForm.php:66
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-08-05 09:49:02 [::1][-][as7c5vcoesj5n6hobtn6r7s535][info][application] $_POST = [
+    'phone' => '17721429141'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_LENGTH' => '17'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/user/update-phone?step=2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_X_CSRF_TOKEN' => 'd25jTFphYmEiCwIbPC4WKRAXNy0RDxg5Jw8qBwotUVMtIjUjGzkVCA=='
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58523'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/user/send-update-phone-sms'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/user/send-update-phone-sms'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390542.24
+    'REQUEST_TIME' => 1470390542
+]
+2016-08-05 09:49:18 [::1][-][as7c5vcoesj5n6hobtn6r7s535][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'common\components\Ucpaas' not found' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/models/SendChangePhoneSmsForm.php:66
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2016-08-05 09:49:17 [::1][-][as7c5vcoesj5n6hobtn6r7s535][info][application] $_POST = [
+    'phone' => '17721429141'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_LENGTH' => '17'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/user/update-phone?step=2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_X_CSRF_TOKEN' => 'MlZfdVNuOWZnMz4iNSFNLlUvCxQYAEM.YjcWPgMiClRoGgkaEjZODw=='
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58536'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/user/send-update-phone-sms'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/user/send-update-phone-sms'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390557.743
+    'REQUEST_TIME' => 1470390557
+]
+2016-08-05 09:49:49 [::1][1][as7c5vcoesj5n6hobtn6r7s535][error][ReflectionException] exception 'ReflectionException' with message 'Class backend\assets\AppAsset does not exist' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php:422
+Stack trace:
+#0 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(422): ReflectionClass->__construct('backend\\assets\\...')
+#1 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(362): yii\di\Container->getDependencies('backend\\assets\\...')
+#2 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('backend\\assets\\...', Array, Array)
+#3 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('backend\\assets\\...', Array, Array)
+#4 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetManager.php(264): yii\BaseYii::createObject(Array)
+#5 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetManager.php(237): yii\web\AssetManager->loadBundle('backend\\assets\\...', Array, true)
+#6 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(284): yii\web\AssetManager->getBundle('backend\\assets\\...')
+#7 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(289): yii\web\View->registerAssetBundle('backend\\assets\\...', NULL)
+#8 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetBundle.php(123): yii\web\View->registerAssetBundle('app\\assets\\Cloc...')
+#9 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/views/business/setup.php(14): yii\web\AssetBundle::register(Object(yii\web\View))
+#10 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(325): require('/Users/wanghong...')
+#11 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Users/wanghong...', Array)
+#12 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/wanghong...', Array, Object(app\controllers\BusinessController))
+#13 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('setup', Array, Object(app\controllers\BusinessController))
+#14 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/controllers/BusinessController.php(73): yii\base\Controller->render('setup', Array)
+#15 [internal function]: app\controllers\BusinessController->actionSetup()
+#16 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#17 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#18 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('setup', Array)
+#19 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('business/setup', Array)
+#20 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php(12): yii\base\Application->run()
+#22 {main}
+2016-08-05 09:49:49 [::1][1][as7c5vcoesj5n6hobtn6r7s535][info][application] $_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/business/profile'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58542'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/business/setup'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/business/setup'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390589.735
+    'REQUEST_TIME' => 1470390589
+]
+2016-08-05 09:50:27 [::1][1][as7c5vcoesj5n6hobtn6r7s535][error][ReflectionException] exception 'ReflectionException' with message 'Class backend\assets\AppAsset does not exist' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php:422
+Stack trace:
+#0 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(422): ReflectionClass->__construct('backend\\assets\\...')
+#1 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(362): yii\di\Container->getDependencies('backend\\assets\\...')
+#2 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/di/Container.php(154): yii\di\Container->build('backend\\assets\\...', Array, Array)
+#3 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/BaseYii.php(344): yii\di\Container->get('backend\\assets\\...', Array, Array)
+#4 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetManager.php(264): yii\BaseYii::createObject(Array)
+#5 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetManager.php(237): yii\web\AssetManager->loadBundle('backend\\assets\\...', Array, true)
+#6 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(284): yii\web\AssetManager->getBundle('backend\\assets\\...')
+#7 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/View.php(289): yii\web\View->registerAssetBundle('backend\\assets\\...', NULL)
+#8 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/AssetBundle.php(123): yii\web\View->registerAssetBundle('app\\assets\\Cloc...')
+#9 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/views/business/setup.php(14): yii\web\AssetBundle::register(Object(yii\web\View))
+#10 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(325): require('/Users/wanghong...')
+#11 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Users/wanghong...', Array)
+#12 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/wanghong...', Array, Object(app\controllers\BusinessController))
+#13 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('setup', Array, Object(app\controllers\BusinessController))
+#14 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/controllers/BusinessController.php(73): yii\base\Controller->render('setup', Array)
+#15 [internal function]: app\controllers\BusinessController->actionSetup()
+#16 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#17 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#18 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('setup', Array)
+#19 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('business/setup', Array)
+#20 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php(12): yii\base\Application->run()
+#22 {main}
+2016-08-05 09:50:27 [::1][1][as7c5vcoesj5n6hobtn6r7s535][info][application] $_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58561'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/business/setup'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/business/setup'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390627.214
+    'REQUEST_TIME' => 1470390627
+]
+2016-08-05 09:51:19 [::1][1][as7c5vcoesj5n6hobtn6r7s535][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'Invalid path alias: @backend/views/galleryManager' in /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/BaseYii.php:152
+Stack trace:
+#0 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(167): yii\BaseYii::getAlias('@backend/views/...')
+#1 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(148): yii\base\View->findViewFile('@backend/views/...', Object(app\widgets\GalleryManager))
+#2 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Widget.php(195): yii\base\View->render('@backend/views/...', Array, Object(app\widgets\GalleryManager))
+#3 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/widgets/GalleryManager.php(70): yii\base\Widget->render('@backend/views/...', Array)
+#4 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Widget.php(102): app\widgets\GalleryManager->run()
+#5 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/views/business/scene.php(21): yii\base\Widget::widget(Array)
+#6 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(325): require('/Users/wanghong...')
+#7 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(247): yii\base\View->renderPhpFile('/Users/wanghong...', Array)
+#8 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/View.php(149): yii\base\View->renderFile('/Users/wanghong...', Array, Object(app\controllers\BusinessController))
+#9 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(378): yii\base\View->render('scene', Array, Object(app\controllers\BusinessController))
+#10 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/controllers/BusinessController.php(161): yii\base\Controller->render('scene', Array)
+#11 [internal function]: app\controllers\BusinessController->actionScene()
+#12 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#13 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#14 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Module.php(454): yii\base\Controller->runAction('scene', Array)
+#15 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/web/Application.php(87): yii\base\Module->runAction('business/scene', Array)
+#16 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/vendor/yiisoft/yii2/base/Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 /Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php(12): yii\base\Application->run()
+#18 {main}
+2016-08-05 09:51:19 [::1][1][as7c5vcoesj5n6hobtn6r7s535][info][application] $_COOKIE = [
+    'PHPSESSID' => 'as7c5vcoesj5n6hobtn6r7s535'
+    '_csrf' => 'de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi\";}'
+    '_identity' => 'bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea:2:{i:0;s:9:\"_identity\";i:1;s:45:\"[1,\"djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz\",604800]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'vonmqad'
+    '__captcha/site/captchacount' => 1
+    '__returnUrl' => '/LazyWaimai-Web/web/'
+    '__id' => 1
+    'passwordVerified' => true
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_COOKIE' => 'PHPSESSID=as7c5vcoesj5n6hobtn6r7s535; _csrf=de3e11f1b68e74280f45ef10a40cb1a39d8a8fd1d8b90d8c9a1b45fd7a60b1d5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22UeaWfOtHgyTaKnzXPaIKPL32ZLVoAXwi%22%3B%7D; _identity=bd6512a291217985b8b103d68440a84c2e7b71fddc6cc95b9e662357e2b5939ea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A45%3A%22%5B1%2C%22djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz%22%2C604800%5D%22%3B%7D'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.7 (KHTML, like Gecko) Version/9.1.2 Safari/601.7.7'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-cn'
+    'HTTP_REFERER' => 'http://localhost/LazyWaimai-Web/web/business/setup'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Unix) PHP/5.6.24'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/wanghong/Documents/Workspace/PHP'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/wanghong/Documents/Workspace/PHP/LazyWaimai-Web/web/index.php'
+    'REMOTE_PORT' => '58577'
+    'REDIRECT_URL' => '/LazyWaimai-Web/web/business/scene'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/LazyWaimai-Web/web/business/scene'
+    'SCRIPT_NAME' => '/LazyWaimai-Web/web/index.php'
+    'PHP_SELF' => '/LazyWaimai-Web/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1470390679.474
+    'REQUEST_TIME' => 1470390679
+]

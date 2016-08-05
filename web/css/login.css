@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+    background: url(../images/login_bgx.gif);
+}
+
+#login-box {
+    width: 403px;
+    margin: 100px auto 0;
+}
+
+#login-box .logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#login-box .logo img {
+    width: 196px;
+    height: 46px;
+    border: none;
+}
+
+#login-box .border {
+    background: url(../images/login_border_bg.png) no-repeat;
+    width: 403px;
+    height: 302px;
+}
+
+#login-box .border {
+    padding: 30px 40px;
+}
+
+#login-box .border form#mobile-login-form {
+    display: block;
+}
+
+#login-box .border form#account-login-form {
+    opacity: 0;
+    display: none;
+}
