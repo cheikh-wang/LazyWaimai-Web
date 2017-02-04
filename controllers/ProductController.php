@@ -34,14 +34,6 @@ class ProductController extends Controller {
         ];
     }
 
-    public function actionTest() {
-        $model = Product::findOne(1);
-
-        return $this->render('test', [
-            'model' => $model,
-        ]);
-    }
-
     /**
      * 浏览商品列表的操作
      *
@@ -76,29 +68,17 @@ class ProductController extends Controller {
             $model->business_id = $admin->business_id;
 
             if ($model->validate()) {
-                // 通过事务来保存数据
-                $transaction = Yii::$app->db->beginTransaction();
-                try {
-                    // 生成一个随机的图片名并保存到数据库
-                    $model->image_path = Yii::$app->security->generateRandomString(10).'.'.$model->image->extension;
-                    if (!$model->save(false)) {
-                        throw new Exception('商品添加失败！');
-                    }
-
-                    // 保存上传图片到服务器的指定目录
-                    $filename = Yii::getAlias(Yii::$app->params['product.imagePath']).DIRECTORY_SEPARATOR.$model->image_path;
-                    if (!$model->image->saveAs($filename)) {
-                        throw new Exception('商品图片添加失败！');
-                    }
-
-                    $transaction->commit();
-                    Yii::$app->session->setFlash('success', '成功添加商品“'.$model->name.'”。');
-
-                    return $this->refresh();
-                } catch (Exception $e) {
-                    $transaction->rollBack();
-                    Yii::$app->session->setFlash('danger', $e->getMessage());
+                // 随机生成图片名
+                $filename = Yii::$app->security->generateRandomString(10).'.'.$model->image->extension;
+                // 使用七牛上传图片并保存到数据库
+                $model->image_path = Yii::$app->qiniu->uploadFile($model->image->tempName, $filename);
+                if (!$model->save(false)) {
+                    Yii::$app->session->setFlash('danger', '商品添加失败');
                 }
+
+                Yii::$app->session->setFlash('success', '成功添加商品“'.$model->name.'”。');
+
+                return $this->redirect(['index']);
             }
         }
 
@@ -128,31 +108,21 @@ class ProductController extends Controller {
             $model->image = UploadedFile::getInstance($model, 'image');
 
             if ($model->validate()) {
+                // 如果有更新图片
                 if ($model->image !== null) {
-                    $model->image_path = Yii::$app->security->generateRandomString(10).'.'.$model->image->extension;
+                    // 随机生成图片名
+                    $filename = Yii::$app->security->generateRandomString(10).'.'.$model->image->extension;
+                    // 使用七牛上传图片
+                    $model->image_path = Yii::$app->qiniu->uploadFile($model->image->tempName, $filename);
                 }
 
-                $transaction = Yii::$app->db->beginTransaction();
-                try {
-                    if (!$model->save(false)) {
-                        throw new Exception('商品更新失败！');
-                    }
-
-                    if ($model->image !== null) {
-                        $filename = Yii::getAlias(Yii::$app->params['product.imagePath']).DIRECTORY_SEPARATOR.$model->image_path;
-                        if (!$model->image->saveAs($filename)) {
-                            throw new Exception('商品图片添加失败！');
-                        }
-                    }
-
-                    $transaction->commit();
-                    Yii::$app->session->setFlash('success', '成功更新商品“'.$model->name.'”。');
-
-                    return $this->refresh();
-                } catch (Exception $e) {
-                    $transaction->rollBack();
-                    Yii::$app->session->setFlash('danger', $e->getMessage());
+                if (!$model->save(false)) {
+                    Yii::$app->session->setFlash('danger', '商品更新失败');
                 }
+
+                Yii::$app->session->setFlash('success', '成功更新商品“'.$model->name.'”。');
+
+                return $this->refresh();
             }
         }
 

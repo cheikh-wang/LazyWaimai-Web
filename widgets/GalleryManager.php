@@ -7,7 +7,6 @@ use yii\base\Exception;
 use yii\base\Widget;
 use yii\helpers\Json;
 use yii\helpers\Url;
-use app\components\helpers\UrlHelper;
 use app\models\BusinessScene;
 use app\assets\GalleryManagerAsset;
 
@@ -24,7 +23,7 @@ class GalleryManager extends Widget {
     public $type = BusinessScene::TYPE_FOYER;
 
     /** @var string Route to gallery controller */
-    public $apiRoute = false;
+    public $apiRoute;
 
     public $options = array();
 
@@ -39,8 +38,8 @@ class GalleryManager extends Widget {
             /** @var $image BusinessScene */
             $images[] = array(
                 'id' => $image->id,
-                'original_url' => UrlHelper::toBusinessScene($image->original_name),
-                'thumb_url' => UrlHelper::toBusinessScene($image->thumb_name),
+                'original_url' => $image->original_url,
+                'thumb_url' => $image->thumb_url,
                 'rank' => $image->rank
             );
         }

@@ -7,6 +7,9 @@ $config = [
     'name' => '懒人外卖管理平台',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'aliases' => [
+        '@upload' => '@app/upload',
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -30,6 +33,13 @@ $config = [
             'token' => '2e3fcf93c16a77209145f74e3c234532',
             'appId' => 'a8ef8cf06c1b4cef81ed57d7de7ceead',
             'templateId' => '12084',
+        ],
+        'qiniu' => [
+            'class' => 'app\components\QiNiu',
+            'accessKey' => 'jqg0WMfuswsDOXwEywf_imIMl0iWGPPM5gRU7zfv',
+            'secretKey' => 'Q0iJyLo1NcwTf5RVx-qQtqvAXPcfDGq38uJRXNX3',
+            'bucket' => 'lazywaimai',
+            'domain' => 'ocd605cmo.bkt.clouddn.com',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

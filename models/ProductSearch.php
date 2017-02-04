@@ -3,9 +3,8 @@
 namespace app\models;
 
 use Yii;
-use app\models\Product;
-use yii\data\ActiveDataProvider;
 use yii\db\ActiveQuery;
+use yii\data\ActiveDataProvider;
 
 class ProductSearch extends Product {
 

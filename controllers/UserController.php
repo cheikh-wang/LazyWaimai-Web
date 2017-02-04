@@ -109,10 +109,10 @@ class UserController extends Controller {
         $model->phone = Yii::$app->request->post('phone');
 
         if ($model->sendSms()) {
-            echo Json::encode(['status' => 'ok']);
+            return Json::encode(['status' => 'ok']);
         } else {
             $message = $model->getFirstError('phone');
-            echo Json::encode(['status' => 'err', 'message' => $message]);
+            return Json::encode(['status' => 'err', 'message' => $message]);
         }
     }
 
@@ -127,7 +127,7 @@ class UserController extends Controller {
             return $this->redirect(['site/index']);
         } else {
             $message = $model->getFirstError('code');
-            echo Json::encode(['status' => 'err', 'message' => $message]);
+            return Json::encode(['status' => 'err', 'message' => $message]);
         }
     }
 
@@ -142,7 +142,7 @@ class UserController extends Controller {
             return $this->redirect(['site/index']);
         } else {
             $message = $model->getFirstError('password');
-            echo Json::encode(['status' => 'err', 'message' => $message]);
+            return Json::encode(['status' => 'err', 'message' => $message]);
         }
     }
 
@@ -172,10 +172,10 @@ class UserController extends Controller {
         $model->phone = Yii::$app->request->post('phone');
 
         if ($model->sendSms()) {
-            echo Json::encode(['status' => 'ok']);
+            return Json::encode(['status' => 'ok']);
         } else {
             $message = $model->getFirstError('phone');
-            echo Json::encode(['status' => 'err', 'message' => $message]);
+            return Json::encode(['status' => 'err', 'message' => $message]);
         }
     }
 

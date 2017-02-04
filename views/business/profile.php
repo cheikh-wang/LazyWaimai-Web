@@ -4,9 +4,6 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use app\components\helpers\UrlHelper;
-use kartik\field\FieldRange;
-use kartik\widgets\SwitchInput;
 use kartik\widgets\FileInput;
 
 $this->title = '商家资料';
@@ -35,7 +32,7 @@ $this->title = '商家资料';
                     'showUpload' => false,
                     'browseLabel' => '选择图片',
                     'removeLabel' => '删除',
-                    'initialPreview' => Html::img(UrlHelper::toBusinessLogo($model->pic_url), ['class' => 'file-preview-image'])
+                    'initialPreview' => Html::img($model->pic_url, ['class' => 'file-preview-image'])
                 ],
             ]) ?>
             <?php endif;?>

@@ -10,7 +10,6 @@ use yii\widgets\Pjax;
 use kartik\date\DatePicker;
 use app\models\Category;
 use app\models\Product;
-use app\components\helpers\UrlHelper;
 
 $this->title = '商品列表';
 
@@ -38,7 +37,7 @@ $this->title = '商品列表';
                         'format' => 'raw',
                         'value' => function($model){
                             /** @var $model Product */
-                            return Html::img(UrlHelper::toProductImage($model->image_path), [
+                            return Html::img($model->image_path, [
                                 'class' => 'img-rounded',
                                 'width' => 50,
                                 'height' => 50

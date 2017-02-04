@@ -7,7 +7,6 @@ use yii\bootstrap\ActiveForm;
 use kartik\select2\Select2;
 use kartik\file\FileInput;
 use app\models\Category;
-use app\components\helpers\UrlHelper;
 
 $this->title = $model->isNewRecord ? '添加商品' : '更新商品';
 
@@ -42,7 +41,7 @@ $this->title = $model->isNewRecord ? '添加商品' : '更新商品';
                         'showUpload' => false,
                         'browseLabel' => '选择图片',
                         'removeLabel' => '删除',
-                        'initialPreview' => Html::img(UrlHelper::toProductImage($model->image_path), ['class' => 'file-preview-image'])
+                        'initialPreview' => Html::img($model->image_path, ['class' => 'file-preview-image'])
                     ],
                 ]) ?>
             <?php endif;?>

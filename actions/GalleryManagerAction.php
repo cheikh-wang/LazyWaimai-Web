@@ -12,7 +12,6 @@ use app\models\BusinessScene;
 use Imagine\Image\Box;
 use yii\imagine\Image;
 use app\models\Admin;
-use app\components\helpers\UrlHelper;
 
 class GalleryManagerAction extends Action {
 
@@ -22,8 +21,7 @@ class GalleryManagerAction extends Action {
                 return $this->actionDelete(Yii::$app->request->post('id'));
                 break;
             case 'ajaxUpload':
-                $type = Yii::$app->request->get('type');
-                return $this->actionAjaxUpload($type);
+                return $this->actionAjaxUpload(Yii::$app->request->get('type'));
                 break;
             case 'order':
                 return $this->actionOrder(Yii::$app->request->post('order'));
@@ -39,28 +37,23 @@ class GalleryManagerAction extends Action {
      * On success returns 'OK'
      *
      * @param $id
-     *
-     * @throws HttpException
      * @return string
+     * @throws Exception
      */
     protected function actionDelete($id) {
-        $scenes = BusinessScene::findAll($id);
-        foreach ($scenes as $scene) {
-            /** @var $scene BusinessScene */
-            $basePath = Yii::getAlias(Yii::$app->params['business.scenePath']);
-            $originalPath = $basePath.DIRECTORY_SEPARATOR.$scene->original_name;
-            $thumbPath = $basePath.DIRECTORY_SEPARATOR.$scene->thumb_name;
-
-            // 删除本地图片文件
-            if (file_exists($originalPath)) {
-                @unlink($originalPath);
-            }
-            if (file_exists($thumbPath)) {
-                @unlink($thumbPath);
-            }
-            // 删除数据库文件记录
-            $scene->delete();
+        /** @var $scene BusinessScene */
+        $scene = BusinessScene::findOne($id);
+        if (!$scene) {
+            throw new Exception('未找到改资源！');
         }
+
+        // 删除原图
+        Yii::$app->qiniu->delete($scene->original_name);
+        // 删除缩略图
+        Yii::$app->qiniu->delete($scene->thumb_name);
+
+        // 删除数据库文件记录
+        $scene->delete();
 
         return 'OK';
     }
@@ -71,58 +64,67 @@ class GalleryManagerAction extends Action {
      *
      * @param $type
      * @return string
-     * @throws \yii\db\Exception
+     * @throws Exception
      */
     public function actionAjaxUpload($type) {
         $imageFile = UploadedFile::getInstanceByName('image');
 
+        // 生成原图名称和缩略图名称
+        $randomStr = Yii::$app->security->generateRandomString(20);
+        $originalName = $randomStr . '.' . $imageFile->extension;
+        $thumbName = $randomStr . '_145x145.' . $imageFile->extension;
+
+        $originalImage = Image::getImagine()->open($imageFile->tempName);
+        $basePath = Yii::getAlias(Yii::$app->params['business.scenePath']);
+
+        // 临时保存原图
+        $originalPath = $basePath.DIRECTORY_SEPARATOR.$originalName;
+        if (!$originalImage->save($originalPath)) {
+            throw new Exception('保存图片失败！');
+        }
+
+        // 临时保存缩略图
+        $thumbPath = $basePath.DIRECTORY_SEPARATOR.$thumbName;
+        if (!$originalImage->copy()->thumbnail(new Box(145, 145))->save($thumbPath)) {
+            throw new Exception('保存图片失败！');
+        }
+
+        // 上传原图和缩略图到七牛
+        $originalUrl = Yii::$app->qiniu->uploadFile($originalPath, $originalName);
+        $thumbUrl = Yii::$app->qiniu->uploadFile($thumbPath, $thumbName);
+
+        // 删除临时的图片文件
+        if (file_exists($originalPath)) {
+            @unlink($originalPath);
+        }
+        if (file_exists($thumbPath)) {
+            @unlink($thumbPath);
+        }
+
         /* @var $admin Admin */
         $admin = Admin::findOne(Yii::$app->user->id);
 
-        // 通过事务来保存数据
-        $transaction = Yii::$app->db->beginTransaction();
-        try {
-            $model = new BusinessScene();
-            $model->business_id = $admin->business_id;
-            $model->type = $type;
-            $model->rank = 1;
-            $model->original_name = Yii::$app->security->generateRandomString(20).'.'.$imageFile->extension;
-            $model->thumb_name = Yii::$app->security->generateRandomString(20).'_145x145.'.$imageFile->extension;
-            if (!$model->save(false)) {
-                throw new Exception('保存图片记录失败！');
-            }
-
-            // 保存上传的图片到服务器
-            $originalImage = Image::getImagine()->open($imageFile->tempName);
-
-            $basePath = Yii::getAlias(Yii::$app->params['business.scenePath']);
-
-            // 原图
-            $originalPath = $basePath.DIRECTORY_SEPARATOR.$model->original_name;
-            if (!$originalImage->save($originalPath)) {
-                throw new Exception('保存图片失败！');
-            }
-            // 缩略图
-            $thumbPath = $basePath.DIRECTORY_SEPARATOR.$model->thumb_name;
-            if (!$originalImage->copy()->thumbnail(new Box(145, 145))->save($thumbPath)) {
-                throw new Exception('保存图片失败！');
-            }
-            $transaction->commit();
-
-            // not "application/json", because  IE8 trying to save response as a file
-            Yii::$app->response->headers->set('Content-Type', 'text/html');
-
-            return Json::encode([
-                'id' => $model->id,
-                'original_url' => UrlHelper::toBusinessScene($model->original_name),
-                'thumb_url' => UrlHelper::toBusinessScene($model->thumb_name),
-                'rank' => $model->rank
-            ]);
-        } catch (Exception $e) {
-            $transaction->rollBack();
-
-            return null;
+        // 保存信息到数据库
+        $model = new BusinessScene();
+        $model->business_id = $admin->business_id;
+        $model->type = $type;
+        $model->rank = 1;
+        $model->original_name = $originalName;
+        $model->original_url = $originalUrl;
+        $model->thumb_name = $thumbName;
+        $model->thumb_url = $thumbUrl;
+        if (!$model->save(false)) {
+            throw new Exception('保存图片记录失败！');
         }
+
+        Yii::$app->response->headers->set('Content-Type', 'text/html');
+
+        return Json::encode([
+            'id' => $model->id,
+            'original_url' => $originalUrl,
+            'thumb_url' => $thumbUrl,
+            'rank' => $model->rank
+        ]);
     }
 
     /**
