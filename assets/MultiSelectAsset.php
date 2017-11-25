@@ -8,7 +8,7 @@ class MultiSelectAsset extends AssetBundle
 {
     // The files are not web directory accessible, therefore we need
     // to specify the sourcePath property. Notice the @vendor alias used.
-    public $sourcePath = '@vendor/multiselect/dist';
+    public $sourcePath = '@bower/bootstrap-multiselect/dist';
     public $css = [
         'css/bootstrap-multiselect.css',
     ];

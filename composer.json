@@ -20,12 +20,17 @@
         "yiisoft/yii2-swiftmailer": "*",
         "yiisoft/yii2-imagine": "*",
         "yiisoft/yii2-jui": "*",
+
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-field-range": "*",
         "2amigos/yii2-chartjs-widget": "~2.0",
-        "onokumus/metismenu": "*",
         "rmrevin/yii2-fontawesome": "*",
-        "jms/serializer": "^1.1"
+
+        "bower-asset/jquery.countdown": "*",
+        "bower-asset/jquery.toaster": "*",
+        "bower-asset/bootstrap-multiselect": "*",
+        "bower-asset/metismenu": "*",
+        "bower-asset/clockpicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

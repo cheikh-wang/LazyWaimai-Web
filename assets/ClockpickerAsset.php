@@ -8,7 +8,7 @@ class ClockPickerAsset extends AssetBundle
 {
     // The files are not web directory accessible, therefore we need
     // to specify the sourcePath property. Notice the @vendor alias used.
-    public $sourcePath = '@vendor/clockpicker/dist';
+    public $sourcePath = '@bower/clockpicker/dist';
     public $css = [
         'bootstrap-clockpicker.css',
     ];

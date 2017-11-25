@@ -9,7 +9,7 @@ class ToasterAsset extends AssetBundle {
 
     // The files are not web directory accessible, therefore we need
     // to specify the sourcePath property. Notice the @vendor alias used.
-    public $sourcePath = '@vendor/toaster/src';
+    public $sourcePath = '@bower/jquery.toaster';
     public $js = [
         'jquery.toaster.js',
     ];
