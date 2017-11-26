@@ -16,7 +16,7 @@ use yii\web\View;
             <div class="btn btn-success btn-file" style="display: inline-block">
                 <i class="glyphicon glyphicon-plus"></i>
                 添加
-                <input type="file" name="image" class="afile" accept="image/*" multiple="multiple" />
+                <input type="file" name="image" class="afile" accept="image/*" />
             </div>
         </div>
         <div class="btn-group" style="display: inline-block;">

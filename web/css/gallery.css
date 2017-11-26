@@ -1,5 +1,5 @@
 /* Photo Gallery */
-.gallery-manager {
+.gallery {
     position: relative;
     border: 1px solid #DDD;
     -webkit-border-radius: 4px;
@@ -11,7 +11,7 @@
     min-height: 250px;
 }
 
-.gallery-manager .photo {
+.gallery .photo {
     position: relative;
     float: left;
     background-color: #fff;
@@ -30,28 +30,28 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
-.gallery-manager .photo img {
+.gallery .photo img {
     width: 145px;
     height: 145px;
 }
 
-.gallery-manager .photo .actions {
+.gallery .photo .actions {
     float: right;
     position: absolute;
     bottom: 4px;
     right: 4px;
 }
 
-.gallery-manager hr {
+.gallery hr {
     margin: 0 4px;
 }
 
-.gallery-manager .btn-file {
+.gallery .btn-file {
     position: relative;
     overflow: hidden;
 }
 
-.gallery-manager .btn-file input[type=file] {
+.gallery .btn-file input[type=file] {
     position: absolute;
     top: 0;
     right: 0;
@@ -67,23 +67,23 @@
     display: block;
 }
 
-.gallery-manager .image-preview {
+.gallery .image-preview {
     height: 200px;
     overflow: hidden;
 }
 
-.gallery-manager .photo-select {
+.gallery .photo-select {
     position: absolute;
     bottom: 8px;
     left: 8px;
 }
 
-.gallery-manager .photo.selected {
+.gallery .photo.selected {
     background-color: #cef;
     border-color: blue;
 }
 
-.gallery-manager .overlay {
+.gallery .overlay {
     display: none;
     position: absolute;
     top: 0;
@@ -92,7 +92,7 @@
     height: 100%;
 }
 
-.gallery-manager .overlay-bg {
+.gallery .overlay-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -102,11 +102,11 @@
     height: 100%;
 }
 
-.gallery-manager.over .overlay {
+.gallery.over .overlay {
     display: block;
 }
 
-.gallery-manager .drop-hint {
+.gallery .drop-hint {
     background-color: #efefef;
     border: 2px #777 dashed;
     position: absolute;
@@ -118,7 +118,7 @@
     text-align: center;
 }
 
-.gallery-manager .drop-hint-info {
+.gallery .drop-hint-info {
     color: #777;
     font-weight: bold;
     font-size: 30px;
@@ -127,7 +127,7 @@
     display: inline-block;
 }
 
-.gallery-manager .progress-overlay {
+.gallery .progress-overlay {
     display: none;
     position: absolute;
     top: 0;
@@ -136,7 +136,7 @@
     height: 100%;
 }
 
-.gallery-manager .progress-overlay .modal {
+.gallery .progress-overlay .modal {
     position: relative;
     display: block;
     top: 80px;

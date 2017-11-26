@@ -12,7 +12,7 @@
         photos: []
     };
 
-    function galleryManager(el, options) {
+    function gallery(el, options) {
         //Extending options:
         var opts = $.extend({}, galleryDefaults, options);
         //code
@@ -54,15 +54,19 @@
                 type: 'POST',
                 url: opts.deleteUrl,
                 data: 'id[]=' + ids.join('&id[]=') + csrfParams,
-                success: function (t) {
-                    if (t == 'OK') {
+                dataType : 'json',
+                success: function (resp) {
+                    if (resp.status === 'ok') {
                         for (var i = 0, l = ids.length; i < l; i++) {
                             photos[ids[i]].remove();
                             delete photos[ids[i]];
                         }
                     } else {
-                        alert(t);
+                        alert(resp.message);
                     }
+                },
+                error: function() {
+                    alert('系统异常');
                 }
             });
         }
@@ -120,122 +124,33 @@
             });
         });
 
-        if (window.FormData !== undefined) { // if XHR2 available
-            var uploadFileName = $('.afile', $gallery).attr('name');
+        $('.afile', $gallery).on('change', function (e) {
+            e.preventDefault();
 
-            var multiUpload = function (files) {
-                if (files.length == 0) return;
-                $progressOverlay.show();
-                $uploadProgress.css('width', '5%');
-                var filesCount = files.length;
-                var uploadedCount = 0;
-                var ids = [];
-                for (var i = 0; i < filesCount; i++) {
-                    var fd = new FormData();
+            $uploadProgress.css('width', '5%');
+            $progressOverlay.show();
 
-                    fd.append(uploadFileName, files[i]);
-                    if (opts.csrfToken) {
-                        fd.append(opts.csrfTokenName, opts.csrfToken);
-                    }
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', opts.uploadUrl, true);
-                    xhr.onload = function () {
-                        uploadedCount++;
-                        if (this.status == 200) {
-                            var resp = JSON.parse(this.response);
-                            addPhoto(resp['id'], resp['thumb_url'], resp['original_url'], resp['rank']);
-                            ids.push(resp['id']);
-                        } else {
-                            // exception !!!
-                        }
-                        $uploadProgress.css('width', '' + (5 + 95 * uploadedCount / filesCount) + '%');
-
-                        if (uploadedCount === filesCount) {
-                            $uploadProgress.css('width', '100%');
-                            $progressOverlay.hide();
-                        }
-                    };
-                    xhr.send(fd);
-                }
-
-            };
-
-            (function () { // add drag and drop
-                var el = $gallery[0];
-                var isOver = false;
-                var lastIsOver = false;
-
-                setInterval(function () {
-                    if (isOver != lastIsOver) {
-                        if (isOver) el.classList.add('over');
-                        else el.classList.remove('over');
-                        lastIsOver = isOver
-                    }
-                }, 30);
-
-                function handleDragOver(e) {
-                    e.preventDefault();
-                    isOver = true;
-                    return false;
-                }
-
-                function handleDragLeave() {
-                    isOver = false;
-                    return false;
-                }
-
-                function handleDrop(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-
-                    var files = e.dataTransfer.files;
-                    multiUpload(files);
-
-                    isOver = false;
-                    return false;
-                }
-
-                function handleDragEnd() {
-                    isOver = false;
-                }
-
-                el.addEventListener('dragover', handleDragOver, false);
-                el.addEventListener('dragleave', handleDragLeave, false);
-                el.addEventListener('drop', handleDrop, false);
-                el.addEventListener('dragend', handleDragEnd, false);
-            })();
-
-            $('.afile', $gallery).attr('multiple', 'true').on('change', function (e) {
-                e.preventDefault();
-                multiUpload(this.files);
-            });
-        } else {
-            $('.afile', $gallery).on('change', function (e) {
-                e.preventDefault();
-                var ids = [];
-                $progressOverlay.show();
-                $uploadProgress.css('width', '5%');
-
-                var data = {};
-                if (opts.csrfToken)
-                    data[opts.csrfTokenName] = opts.csrfToken;
-                $.ajax({
-                    type: 'POST',
-                    url: opts.uploadUrl,
-                    data: data,
-                    files: $(this),
-                    iframe: true,
-                    processData: false,
-                    dataType: "json"
-                }).done(function (resp) {
-                    addPhoto(resp['id'], resp['thumb_url'], resp['original_url'], resp['rank']);
-                    ids.push(resp['id']);
+            var data = {};
+            if (opts.csrfToken)
+                data[opts.csrfTokenName] = opts.csrfToken;
+            $.ajax({
+                type: 'POST',
+                url: opts.uploadUrl,
+                data: data,
+                files: $(this),
+                iframe: true,
+                processData: false,
+                dataType: "json"
+            }).done(function (resp) {
+                if (resp.status === 'ok') {
+                    addPhoto(resp.data['id'], resp.data['thumb_url'], resp.data['original_url'], resp.data['rank']);
                     $uploadProgress.css('width', '100%');
-                    $progressOverlay.hide();
-                });
+                } else {
+                    alert(resp.message);
+                }
+                $progressOverlay.hide();
             });
-        }
+        });
 
         $('.remove_selected', $gallery).click(function (e) {
             e.preventDefault();
@@ -266,10 +181,10 @@
     }
 
     // The actual plugin
-    $.fn.galleryManager = function (options) {
+    $.fn.gallery = function (options) {
         if (this.length) {
             this.each(function () {
-                galleryManager(this, options);
+                gallery(this, options);
             });
         }
     };

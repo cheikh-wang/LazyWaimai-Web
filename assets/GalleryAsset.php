@@ -5,17 +5,17 @@ namespace app\assets;
 use Yii;
 use yii\web\AssetBundle;
 
-class GalleryManagerAsset extends AssetBundle {
+class GalleryAsset extends AssetBundle {
 
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $js = [
         'js/jquery.iframe-transport.js',
-        'js/jquery.galleryManager.js',
+        'js/jquery.gallery.js',
         'js/lightbox.js'
     ];
     public $css = [
-        'css/galleryManager.css',
+        'css/gallery.css',
         'css/lightbox.css'
     ];
     public $depends = [

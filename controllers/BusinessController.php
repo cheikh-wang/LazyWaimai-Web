@@ -10,7 +10,7 @@ use app\models\Admin;
 use app\models\Business;
 use app\models\BusinessScene;
 use yii\filters\AccessControl;
-use app\actions\GalleryManagerAction;
+use app\actions\GalleryAction;
 
 /**
  * 商品的控制器
@@ -40,7 +40,7 @@ class BusinessController extends Controller {
     public function actions() {
         return [
             'gallery' => [
-                'class' => GalleryManagerAction::className(),
+                'class' => GalleryAction::className(),
             ],
         ];
     }
@@ -118,7 +118,7 @@ class BusinessController extends Controller {
         $frontImages = BusinessScene::find()
             ->where([
                 'business_id' => $admin->business_id,
-                'type' => 1
+                'type' => BusinessScene::TYPE_FRONT
             ])
             ->orderBy(['rank' => 'asc'])
             ->all();
@@ -126,7 +126,7 @@ class BusinessController extends Controller {
         $foyerImages = BusinessScene::find()
             ->where([
                 'business_id' => $admin->business_id,
-                'type' => 2
+                'type' => BusinessScene::TYPE_FOYER
             ])
             ->orderBy(['rank' => 'asc'])
             ->all();
@@ -134,7 +134,7 @@ class BusinessController extends Controller {
         $kitchenImages = BusinessScene::find()
             ->where([
                 'business_id' => $admin->business_id,
-                'type' => 3
+                'type' => BusinessScene::TYPE_KITCHEN
             ])
             ->orderBy(['rank' => 'asc'])
             ->all();

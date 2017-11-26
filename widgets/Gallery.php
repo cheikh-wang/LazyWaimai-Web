@@ -8,19 +8,19 @@ use yii\base\Widget;
 use yii\helpers\Json;
 use yii\helpers\Url;
 use app\models\BusinessScene;
-use app\assets\GalleryManagerAsset;
+use app\assets\GalleryAsset;
 
 /**
  * Widget to manage gallery.
  * Requires Twitter Bootstrap styles to work.
  */
-class GalleryManager extends Widget {
+class Gallery extends Widget {
 
     /** @var array */
     public $images;
 
     /** @var int */
-    public $type = BusinessScene::TYPE_FOYER;
+    public $type;
 
     /** @var string Route to gallery controller */
     public $apiRoute;
@@ -58,13 +58,13 @@ class GalleryManager extends Widget {
 
         $opts = Json::encode($opts);
         $view = $this->getView();
-        GalleryManagerAsset::register($view);
-        $view->registerJs("$('#{$this->id}').galleryManager({$opts});");
+        GalleryAsset::register($view);
+        $view->registerJs("$('#{$this->id}').gallery({$opts});");
 
         $this->options['id'] = $this->id;
-        $this->options['class'] = 'gallery-manager';
+        $this->options['class'] = 'gallery';
 
-        return $this->render('@app/views/galleryManager', [
+        return $this->render('@app/views/gallery', [
             'options' => $this->options
         ]);
     }
