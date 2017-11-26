@@ -38,7 +38,7 @@ $(function() {
         var $this = $(this);
 
         // 发送验证码的 url
-        var sendSmsUrl = $(this).attr('data-url');
+        var sendSmsUrl = $this.attr('data-url');
 
         // 通过ajax发送短信验证码
         $.ajax({
@@ -49,22 +49,26 @@ $(function() {
             beforeSend : function() {
                 // 避免重复点击
                 $this.attr('disabled', true);
-            }
-        }).done(function (data) {
-            if (data.status === 'ok') {
-                toastSuccess('短信发送成功,请注意查收...');
+            },
+            success : function(data) {
+                if (data.status === 'ok') {
+                    toastSuccess('短信发送成功, 请注意查收...');
 
-                $this.html('<em>60</em> 秒后可重发');
-                $this.find('em').countdown((new Date()).getTime() + 59000, function (event) {
-                    $(this).text(event.strftime('%S'));
-                }).on('finish.countdown', function(event) {
+                    $this.html('<em>60</em> 秒后可重发');
+                    $this.find('em').countdown((new Date()).getTime() + 59000, function (event) {
+                        $(this).text(event.strftime('%S'));
+                    }).on('finish.countdown', function(event) {
+                        $this.attr('disabled', false);
+                        $this.text('重新发送');
+                    });
+                } else {
+                    toastError(data.message);
                     $this.attr('disabled', false);
-                    $this.text('重新发送');
-                });
-            } else {
+                }
+            },
+            error : function() {
+                toastError('系统异常');
                 $this.attr('disabled', false);
-
-                toastError(data.message);
             }
         });
     });
@@ -89,7 +93,7 @@ $(function() {
         var $this = $(this);
 
         // 验证手机号登录的url
-        var loginUrl = $(this).attr('data-url');
+        var loginUrl = $this.attr('data-url');
 
         // 通过ajax验证手机号登录
         $.ajax({
@@ -103,12 +107,17 @@ $(function() {
             dataType : 'json',
             beforeSend : function() {   // 避免重复点击
                 $this.attr('disabled', true);
+            },
+            success : function(data) {
+                if (data.status === 'err') {
+                    toastError(data.message);
+                    $this.attr('disabled', false);
+                }
+            },
+            error : function() {
+                toastError('系统异常');
+                $this.attr('disabled', false);
             }
-        }).done(function (data) {
-            $this.attr('disabled', false);
-
-            // 只有登录失败才会返回数据
-            toastError(data.message);
         });
     });
 
@@ -132,7 +141,7 @@ $(function() {
         var $this = $(this);
 
         // 验证手机号登录的url
-        var loginUrl = $(this).attr('data-url');
+        var loginUrl = $this.attr('data-url');
 
         // 通过ajax验证手机号登录
         $.ajax({
@@ -146,12 +155,17 @@ $(function() {
             dataType : 'json',
             beforeSend : function() {   // 避免重复点击
                 $this.attr('disabled', true);
+            },
+            success : function(data) {
+                if (data.status === 'err') {
+                    toastError(data.message);
+                    $this.attr('disabled', false);
+                }
+            },
+            error : function() {
+                toastError('系统异常');
+                $this.attr('disabled', false);
             }
-        }).done(function (data) {
-            $this.attr('disabled', false);
-
-            // 只有登录失败才会返回数据
-            toastError(data.message);
         });
     });
 });
