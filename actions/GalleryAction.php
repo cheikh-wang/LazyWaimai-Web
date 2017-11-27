@@ -85,7 +85,7 @@ class GalleryAction extends Action {
             $thumbName = $randomStr . '_145x145.' . $imageFile->extension;
 
             $originalImage = Image::getImagine()->open($imageFile->tempName);
-            $basePath = Yii::getAlias(Yii::$app->params['business.scenePath']);
+            $basePath = Yii::getAlias(Yii::$app->params['imageUploadPath']);
 
             // 临时保存原图
             $originalPath = $basePath . DIRECTORY_SEPARATOR . $originalName;
