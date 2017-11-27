@@ -1,16 +1,13 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Application Template",
-    "keywords": ["yii2", "framework", "basic", "application template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "LazyWaimai-Web",
+    "description": "懒人外卖的商家端",
+    "keywords": ["懒人外卖", "商家端", "LazyWaimai"],
+    "homepage": "https://github.com/cheikh-wang/LazyWaimai-Web",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/cheikh-wang/LazyWaimai-Web/issues?state=open",
+        "source": "https://github.com/cheikh-wang/LazyWaimai-Web"
     },
     "minimum-stability": "stable",
     "require": {
@@ -61,13 +58,6 @@
     },
     "extra": {
         "yii\\composer\\Installer::postCreateProject": {
-            "setPermission": [
-                {
-                    "runtime": "0777",
-                    "web/assets": "0777",
-                    "yii": "0755"
-                }
-            ],
             "generateCookieValidationKey": [
                 "config/web.php"
             ]
@@ -75,6 +65,9 @@
         "yii\\composer\\Installer::postInstall": {
             "setPermission": [
                 {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755",
                     "upload/images": "0777"
                 }
             ]
