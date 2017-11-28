@@ -1,13 +1,5 @@
 $(function() {
 
-    function toastSuccess(message) {
-        $.toaster({message : message, title : '', priority : 'success'});
-    }
-
-    function toastError(message) {
-        $.toaster({message : message, title : '', priority : 'danger'});
-    }
-
     var mobileLoginFrom = $('#mobile-login-form');
     var accountLoginForm = $('#account-login-form');
 
@@ -31,7 +23,7 @@ $(function() {
     $('button[name="send-sms-btn"]', mobileLoginFrom).click(function() {
         var phone = $('input[name="phone"]', mobileLoginFrom).val();
         if (phone == '') {
-            toastError('手机号不能为空');
+            $.toaster({message : '手机号不能为空', title : '', priority : 'danger'});
             return false;
         }
 
@@ -52,7 +44,7 @@ $(function() {
             },
             success : function(data) {
                 if (data.status === 'ok') {
-                    toastSuccess('短信发送成功, 请注意查收...');
+                    $.toaster({message : '短信发送成功, 请注意查收...', title : '', priority : 'success'});
 
                     $this.html('<em>60</em> 秒后可重发');
                     $this.find('em').countdown((new Date()).getTime() + 59000, function (event) {
@@ -62,12 +54,12 @@ $(function() {
                         $this.text('重新发送');
                     });
                 } else {
-                    toastError(data.message);
+                    $.toaster({message : data.message, title : '', priority : 'danger'});
                     $this.attr('disabled', false);
                 }
             },
             error : function() {
-                toastError('系统异常');
+                $.toaster({message : '系统异常', title : '', priority : 'danger'});
                 $this.attr('disabled', false);
             }
         });
@@ -82,11 +74,11 @@ $(function() {
         var code = $('input[name="code"]', mobileLoginFrom).val();
         var remember = $('input[name="remember"]', mobileLoginFrom).is(':checked') ? 1 : 0;
         if (phone == '') {
-            toastError('手机号不能为空');
+            $.toaster({message : '手机号不能为空', title : '', priority : 'danger'});
             return false;
         }
         if (code == '') {
-            toastError('验证码不能为空');
+            $.toaster({message : '验证码不能为空', title : '', priority : 'danger'});
             return false;
         }
 
@@ -110,12 +102,12 @@ $(function() {
             },
             success : function(data) {
                 if (data.status === 'err') {
-                    toastError(data.message);
+                    $.toaster({message : data.message, title : '', priority : 'danger'});
                     $this.attr('disabled', false);
                 }
             },
             error : function() {
-                toastError('系统异常');
+                $.toaster({message : '系统异常', title : '', priority : 'danger'});
                 $this.attr('disabled', false);
             }
         });
@@ -130,11 +122,11 @@ $(function() {
         var password = $('input[name="password"]', accountLoginForm).val();
         var remember = $('input[name="remember"]', accountLoginForm).is(':checked') ? 1 : 0;
         if (username == '') {
-            toastError('帐号不能为空');
+            $.toaster({message : '帐号不能为空', title : '', priority : 'danger'});
             return false;
         }
         if (password == '') {
-            toastError('密码不能为空');
+            $.toaster({message : '密码不能为空', title : '', priority : 'danger'});
             return false;
         }
 
@@ -158,12 +150,12 @@ $(function() {
             },
             success : function(data) {
                 if (data.status === 'err') {
-                    toastError(data.message);
+                    $.toaster({message : data.message, title : '', priority : 'danger'});
                     $this.attr('disabled', false);
                 }
             },
             error : function() {
-                toastError('系统异常');
+                $.toaster({message : '系统异常', title : '', priority : 'danger'});
                 $this.attr('disabled', false);
             }
         });

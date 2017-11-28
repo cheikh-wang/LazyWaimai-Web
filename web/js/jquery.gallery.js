@@ -61,12 +61,13 @@
                             photos[ids[i]].remove();
                             delete photos[ids[i]];
                         }
+                        $.toaster({message : '图片删除成功', title : '', priority : 'success'});
                     } else {
-                        alert(resp.message);
+                        $.toaster({message : resp.message, title : '', priority : 'danger'});
                     }
                 },
                 error: function() {
-                    alert('系统异常');
+                    $.toaster({message : '系统异常', title : '', priority : 'danger'});
                 }
             });
         }
@@ -145,8 +146,9 @@
                 if (resp.status === 'ok') {
                     addPhoto(resp.data['id'], resp.data['thumb_url'], resp.data['original_url'], resp.data['rank']);
                     $uploadProgress.css('width', '100%');
+                    $.toaster({message : '图片上传成功', title : '', priority : 'success'});
                 } else {
-                    alert(resp.message);
+                    $.toaster({message : resp.message, title : '', priority : 'danger'});
                 }
                 $progressOverlay.hide();
             });
