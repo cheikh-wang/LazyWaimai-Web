@@ -10,16 +10,15 @@ LazyWaimai-Api
 -------
 #### 1.clone到本地
 ```
-git clone git@github.com:cheikh-wang/LazyWaimai-Web.git
+git clone -b develop https://github.com/cheikh-wang/LazyWaimai-Web.git
 ```
 #### 2.配置数据库
 1. 将sql文件导入到数据库中
 
 2. 配置数据库
-修改数据库密码:
 ```
 cd LazyWaimai-Web
-vi config/web.php
+vi config/web.php  // 将数据库密码修改成你本机的数据库密码
 ```
 #### 3.安装依赖
 本项目使用composer管理依赖,所以需要先安装composer（已安装请跳过）
@@ -32,7 +31,7 @@ mv composer.phar /usr/local/bin/composer
 composer global require "fxp/composer-asset-plugin:^1.3.1"
 ```
 
-开始之前请确保composer和composer-asset-plugin已成功安装
+安装项目所需依赖（开始之前请确保composer和composer-asset-plugin已成功安装)
 ```
 composer install
 ```
