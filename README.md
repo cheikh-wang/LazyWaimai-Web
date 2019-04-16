@@ -39,6 +39,10 @@ composer install
 ```
 配置nginx/apache的webroot指向LazyWaimai-Web/web
 ```
+#### 6.完毕
+
+安装完毕，默认的管理员账号，用户名：admin，密码：123456
+
 其他配置
 -------
 #### 1.短信服务的配置
